@@ -1,9 +1,22 @@
 'use strict';
 
-var server = require('./server');
-var PORT = process.env.PORT || 3000;
+var express = require('express');
+var mongoose = require('mongoose');
+var routes = require('./public/controller/urlController.js');
 
 
-server.listen(PORT, () => {
-  console.log('Listening on port %s', PORT);
+var app = express();
+//
+var MONGO_URI = process.env.MONGO_URI || 'mongodb://localhost:27017';
+mongoose.connect(MONGO_URI);
+
+app.use('/', express.static(process.cwd() + '/public'));
+
+
+routes(app);
+
+var port = process.env.PORT || 3000;
+var host = process.env.HOST  || "https://mdasilva-urlShortener.herokuapp.com/";
+app.listen(port,  function () {
+	console.log('Node.js listening on port ' + port + '...'+ host);
 });
