@@ -16,7 +16,7 @@ app.use('/', express.static(process.cwd() + '/public'));
 routes(app);
 
 var port = process.env.PORT || 3000;
-var host = process.env.HOST  || "https://mdasilva-urlShortener.herokuapp.com/";
+var host = process.env.HOST  || "https://mdasilva-urlshortener.herokuapp.com/";
 app.listen(port,  function () {
 	console.log('Node.js listening on port ' + port + '...'+ host);
 });

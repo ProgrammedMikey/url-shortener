@@ -6,7 +6,7 @@ var validator = require('validator');
 var Url = require('../model/urlModel');
 var path = process.cwd();
 
-var MYURL = process.env.HOST || "https://mdasilva-urlShortener.herokuapp.com/";
+var MYURL = process.env.HOST || "https://mdasilva-urlshortener.herokuapp.com/";
 
 module.exports = function (app) {
 
