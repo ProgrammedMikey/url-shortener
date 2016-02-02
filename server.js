@@ -10,6 +10,10 @@ var app = express();
 var MONGO_URI = process.env.MONGO_URI || 'mongodb://localhost:27017';
 mongoose.connect(MONGO_URI);
 
+app.configure('production', function() {
+  mongoose.connect('mongodb://' + process.env.MONGOLAB_URI);
+});
+
 app.use('/', express.static(process.cwd() + '/public'));
 
 
